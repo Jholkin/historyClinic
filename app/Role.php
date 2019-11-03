@@ -12,7 +12,7 @@ class Role extends Model
     ];
 
     //RELATIONSHIP
-    public function permission()
+    public function permissions()
     {
         return $this->hasMany('App\Permission');
     }
