@@ -14,7 +14,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        return "hola desde el Role controller metodo index";
     }
 
     /**

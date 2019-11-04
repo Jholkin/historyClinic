@@ -11,15 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('demo', function () {
-    return view('theme.backoffice.pages.demo');
-});
-
-//Auth::routes();
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['auth'], 'as' => 'backoffice.'], function() {
+    Route::get('role', 'RoleController');
+});
