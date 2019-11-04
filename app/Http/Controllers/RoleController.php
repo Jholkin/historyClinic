@@ -15,7 +15,10 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return "hola desde el Role controller metodo index";
+        // Pendiente: añadir autorización
+        return view('theme.backoffice.pages.role.index', [
+            'roles' => Role::all()
+        ]);
     }
 
     /**
@@ -61,7 +64,10 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        // Pendiente: añadir autorización
+        return view('theme.backoffice.pages.role.edit', [
+            'role' => $role
+        ]);
     }
 
     /**
