@@ -45,6 +45,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function roles()
     {
-        return $this->belognsToMany('App\Role');
+        return $this->belognsToMany('App\Role')->withTimestamps();
     }
 }
