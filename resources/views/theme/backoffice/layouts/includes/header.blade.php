@@ -8,7 +8,7 @@
               <li>
                 <h1 class="logo-wrapper">
                   <a href="index.html" class="brand-logo darken-1">
-                    <img src="images/logo/materialize-logo.png" alt="materialize logo">
+                    <img src="/images/logo/materialize-logo.png" alt="materialize logo">
                     <span class="logo-text hide-on-med-and-down">History Clinic</span>
                   </a>
                 </h1>
@@ -31,7 +31,7 @@
               <li>
                 <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button" data-activates="profile-dropdown">
                   <span class="avatar-status avatar-online">
-                    <img src="images/avatar/avatar-7.png" alt="avatar">
+                    <img src="/images/avatar/avatar-7.png" alt="avatar">
                     <i></i>
                   </span>
                 </a>

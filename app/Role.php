@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Role extends Model
 {
@@ -23,6 +24,13 @@ class Role extends Model
     }
 
     //STORAGE
+    public function store($request)
+    {
+        $slug = Str::slug($request->name, '-');
+        return  self::create($request->all() + [
+            'slug' => $slug
+        ]);
+    }
 
     //VALIDATION
 

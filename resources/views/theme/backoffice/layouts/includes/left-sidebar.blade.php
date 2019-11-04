@@ -4,7 +4,7 @@
             <li class="user-details cyan darken-2">
               <div class="row">
                 <div class="col col s4 m4 l4">
-                  <img src="images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan">
+                  <img src="/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan">
                 </div>
                 <div class="col col s8 m8 l8">
                   <ul id="profile-dropdown-nav" class="dropdown-content">
