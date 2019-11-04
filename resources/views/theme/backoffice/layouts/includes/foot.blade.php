@@ -9,4 +9,6 @@
     <!--custom-script.js - Add your own theme custom JS-->
     <script src="{{ asset('/assets/backoffice/js/custom-script.js') }}"></script>
 
+    <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
+
     @yield('foot')

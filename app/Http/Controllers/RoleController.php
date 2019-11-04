@@ -92,6 +92,8 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        // Pendiente de autenticación
+        $role->delete();
+        return redirect()->route('backoffice.role.index');
     }
 }

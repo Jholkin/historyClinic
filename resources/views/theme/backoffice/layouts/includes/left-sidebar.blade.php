@@ -34,11 +34,18 @@
             <li class="no-padding">
               <ul class="collapsible" data-collapsible="accordion">
                 <li class="bold">
-                  <a href="index.html" class="waves-effect waves-cyan">
+                  <a href="#" class="waves-effect waves-cyan">
                       <i class="material-icons">pie_chart_outlined</i>
                       <span class="nav-text">Panel de administración</span>
                     </a>
                 </li>
+
+                <li class="bold">
+                    <a href="{{route('backoffice.role.index')}}" class="waves-effect waves-cyan">
+                        <i class="material-icons">perm_identity</i>
+                        <span class="nav-text">Roles del sistema</span>
+                      </a>
+                  </li>
               </ul>
             </li>
           </ul>

@@ -27,6 +27,7 @@ class Role extends Model
     public function store($request)
     {
         $slug = Str::slug($request->name, '-');
+        alert('Éxito', 'El rol se ha guardado', 'success');
         return  self::create($request->all() + [
             'slug' => $slug
         ]);
