@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Role;
 use Illuminate\Http\Request;
 use App\Http\Requests\Role\StoreRequest;
+use App\Http\Requests\Role\UpdateRequest;
 
 class RoleController extends Controller
 {
@@ -77,9 +78,10 @@ class RoleController extends Controller
      * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(UpdateRequest $request, Role $role)
     {
-        //
+        $role->my_update($request);
+        return redirect()->route('backoffice.role.show', $role);
     }
 
     /**

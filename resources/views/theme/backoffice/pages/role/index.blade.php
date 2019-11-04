@@ -20,14 +20,16 @@
                           <th>Nombre</th>
                           <th>Slug</th>
                           <th>Descripción</th>
+                          <th>Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
                         @foreach ($roles as $role)
                             <tr>
-                                <td>{{$role->name}}</td>
+                                <td><a href="{{route('backoffice.role.show', $role)}}">{{$role->name}}</a></td>
                                 <td>{{$role->slug}}</td>
                                 <td>{{$role->description}}</td>
+                                <td><a href="{{route('backoffice.role.edit', $role)}}">Editar</a></td>
                             </tr>
                         @endforeach
                     </tbody>

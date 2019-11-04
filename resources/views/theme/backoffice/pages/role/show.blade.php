@@ -15,7 +15,7 @@
             <div class="card-panel">
             <h4 class="header2">Usuarios con el rol de {{ $role->name }}</h4>
               <div class="row">
-              
+                <p>{{$role->description}}</p>
               </div>
             </div>
           </div>
