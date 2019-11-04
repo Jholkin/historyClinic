@@ -45,6 +45,18 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function roles()
     {
-        return $this->belognsToMany('App\Role')->withTimestamps();
+        return $this->belongsToMany('App\Role')->withTimestamps();
+    }
+
+    // VALIDATIONS
+    public function has_role($id)
+    {
+        foreach ($this->roles as $role) {
+            if ($role->id == $id || $role->slug == $id) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
