@@ -53,7 +53,8 @@ class RoleController extends Controller
     public function show(Role $role)
     {
         return view('theme.backoffice.pages.role.show', [
-            'role' => $role
+            'role' => $role,
+            'permissions' => $role->permissions
         ]);
     }
 
