@@ -49,6 +49,12 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     // VALIDATIONS
+    public function is_admin()
+    {
+        $admin = config('app.admin_role');
+        return $this->has_role($admin) ? true : false;    
+    }
+
     public function has_role($id)
     {
         foreach ($this->roles as $role) {
@@ -58,5 +64,27 @@ class User extends Authenticatable implements MustVerifyEmail
         }
 
         return false;
+    }
+
+    public function has_permission($id)
+    {
+        foreach ($this->permissions as $permission) {
+            if ($permission->id == $id || $permission->slug == $id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    //OTHER OPERATIONS
+    public function very_permission_integrity()
+    {
+        $permissions = $this->permissions;
+        foreach ($permissions as $permission) {
+            if (!$this->has_role($permission->role->id)) {
+                $this->permission->detach($permission->id);
+            }
+        }
     }
 }
