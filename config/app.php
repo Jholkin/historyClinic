@@ -3,6 +3,7 @@
 return [
 
     'admin_role' => env('ADMIN_ROLE', 'admin'),
+    'patiente_role' => env('PATIENTE_ROLE', 'paciente'),
 
     /*
     |--------------------------------------------------------------------------

@@ -48,6 +48,15 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany('App\Role')->withTimestamps();
     }
 
+    // STORAGE
+    public function role_assignment($request)
+    {
+        $this->permission_more_assignment($request->roles);
+        $this->roles()->sync($request->roles);
+        $this->very_permission_integrity($request->roles);
+        // falta implementar mensaje de alerta
+    }
+
     // VALIDATIONS
     public function is_admin()
     {
@@ -78,12 +87,25 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     //OTHER OPERATIONS
-    public function very_permission_integrity()
+    public function very_permission_integrity(array $roles)
     {
-        $permissions = $this->permissions;
+        $permissions = $this->permissions; //almacenamos todos los permisos del usuario
         foreach ($permissions as $permission) {
-            if (!$this->has_role($permission->role->id)) {
-                $this->permission->detach($permission->id);
+            //verifica si el usuario tiene el rol del permiso en cuestion, si no se cumple quita los permisos al usuario
+            if (!in_array($permission->role->id, $roles)) {
+                $this->permissions()->detach($permission->id);
+            }
+        }
+    }
+
+    //función para recibir un arreglo de todos los roles nuevos que tiene el usuario
+    public function permission_more_assignment(array $roles)
+    {
+        foreach ($roles as $role) {
+            if (!$this->has_role($role)) {
+                $role_obj = \App\Role::findOrFail($role);
+                $permissions = $role_obj->permissions;
+                $this->permissions()->syncWithoutDetaching($permissions);
             }
         }
     }

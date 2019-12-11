@@ -105,8 +105,7 @@ class UserController extends Controller
      */
     public function role_assignment(Request $request, User $user)
     {
-        $user->roles()->sync($request->roles);
-        $user->very_permission_integrity();
+        $user->role_assignment($request);
         return redirect()->route('backoffice.user.show', $user);
     }
 

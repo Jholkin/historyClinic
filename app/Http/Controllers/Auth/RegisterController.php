@@ -63,10 +63,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $patiente_role = config('app.patiente_role');
+        $role = \App\Role::where('slug', $patiente)->first();
+        $permissions = $role->permissions;
+
+        $user->roles()->atach($role);
+        $user->permissions()->sync($permissions);
+        
+        return $user;
     }
 }
